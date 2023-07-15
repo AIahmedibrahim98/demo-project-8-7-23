@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CalculatorController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-     return view('welcome');
-});
+Route::get('/', fn () => view('welcome'));
 
+Route::get('test', fn () => "test page");
+
+Route::get('test2', [TestController::class, 'test2']);
+
+Route::get('test3/{name}/{age?}', [TestController::class, 'test3']);
+
+Route::get('calculator/add/{x}/{y}', [CalculatorController::class, 'add']);
+Route::get('calculator/sub/{x}/{y}', [CalculatorController::class, 'sub']);
+Route::get('calculator/multi/{x}/{y}', [CalculatorController::class, 'multi']);
+Route::get('calculator/div/{x}/{y}', [CalculatorController::class, 'div']);
