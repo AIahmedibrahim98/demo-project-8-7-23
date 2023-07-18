@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class CalculatorController extends Controller
 {
+    // CourseSessionController
     public function add($x, $y)
     {
         $z = $x + $y;
