@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CalculatorController;
+use App\Http\Controllers\Lec5Controller;
 use App\Http\Controllers\TestController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -65,4 +66,11 @@ Route::prefix('users')->as('users.')->group(function () {
     Route::get('/edit/{id}', fn ($id) => "Edit User $id")->name('edit');
     Route::get('/show/{id}', fn ($id) => "Show User $id")->name('show');
     Route::get('/delete/{id}', fn ($id) => "Delete User $id")->name('delete');
+});
+
+
+Route::prefix('lec5')->as('lec5.')->group(function () {
+    Route::get('page1', [Lec5Controller::class, 'page1'])->name('page1');
+    Route::get('page2', [Lec5Controller::class, 'page2'])->name('page2');
+    Route::get('page3', [Lec5Controller::class, 'page3'])->name('page3');
 });
