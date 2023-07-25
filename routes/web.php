@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CalculatorController;
 use App\Http\Controllers\Lec5Controller;
+use App\Http\Controllers\SaleController;
 use App\Http\Controllers\TestController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -74,3 +75,6 @@ Route::prefix('lec5')->as('lec5.')->group(function () {
     Route::get('page2', [Lec5Controller::class, 'page2'])->name('page2');
     Route::get('page3', [Lec5Controller::class, 'page3'])->name('page3');
 });
+
+Route::get('sales', [SaleController::class, 'index'])->name('sales.index');
+Route::get('sales-v2', [SaleController::class, 'index_v2'])->name('sales.index_v2');
