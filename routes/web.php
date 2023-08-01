@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CalculatorController;
+use App\Http\Controllers\HrController;
 use App\Http\Controllers\Lec5Controller;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\TestController;
@@ -78,3 +79,5 @@ Route::prefix('lec5')->as('lec5.')->group(function () {
 
 Route::get('sales', [SaleController::class, 'index'])->name('sales.index');
 Route::get('sales-v2', [SaleController::class, 'index_v2'])->name('sales.index_v2');
+
+Route::get('hr', [HrController::class, 'index']);
