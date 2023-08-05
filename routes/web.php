@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CalculatorController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HrController;
 use App\Http\Controllers\Lec5Controller;
 use App\Http\Controllers\SaleController;
@@ -81,3 +82,8 @@ Route::get('sales', [SaleController::class, 'index'])->name('sales.index');
 Route::get('sales-v2', [SaleController::class, 'index_v2'])->name('sales.index_v2');
 
 Route::get('hr', [HrController::class, 'index']);
+Route::get('hr/dml', [HrController::class, 'dml']);
+Route::get('hr/employees/model', [HrController::class, 'model']);
+
+
+Route::get('employees', [EmployeeController::class, 'index']);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -117,5 +118,77 @@ class HrController extends Controller
         //     echo "Name :" . $emp->FIRST_NAME . ' ' . $emp->LAST_NAME . "<br>";
         //     echo "Salary :" . $emp->SALARY . "<hr>";
         // }
+    }
+
+
+    public function dml()
+    {
+        /* $region = DB::table('regions')->insert([
+            [
+                'REGION_ID' => '777',
+                'REGION_NAME' => 'From DB Query Builder',
+            ],
+            [
+                'REGION_ID' => '666',
+                'REGION_NAME' => 'From DB Query Builder',
+            ],
+            [
+                'REGION_ID' => '555',
+                'REGION_NAME' => 'From DB Query Builder',
+            ]
+        ]); */
+
+        /* $region = DB::table('regions')->insertOrIgnore([
+            [
+                'REGION_ID' => '777',
+                'REGION_NAME' => 'From DB Query Builder',
+            ],
+            [
+                'REGION_ID' => '666',
+                'REGION_NAME' => 'From DB Query Builder',
+            ],
+            [
+                'REGION_ID' => '555',
+                'REGION_NAME' => 'From DB Query Builder',
+            ],
+            [
+                'REGION_ID' => '444',
+                'REGION_NAME' => 'From DB Query Builder insertOrIgnore',
+            ]
+        ]); */
+
+        /* $region = DB::table('regions')->insertUsing(['REGION_ID', 'REGION_NAME'], DB::table('employees')
+            ->where('EMPLOYEE_ID', '<=', 110)->select(['EMPLOYEE_ID', 'FIRST_NAME'])); */
+
+        /* $region = DB::table('regions')->whereBetween('REGION_ID', [100, 110])->update([
+            'REGION_NAME' => 'data updated'
+        ]); */
+
+        /*  $region = DB::table('regions')->updateOrInsert(['REGION_ID' => 500, 'REGION_NAME' => 'maha'], [
+            'REGION_NAME' => 'sara'
+        ]); */
+
+        // $employees = DB::table('employees')->where('DEPARTMENT_ID', 90)->increment('salary', 5000);
+        // $employees = DB::table('employees')->where('DEPARTMENT_ID', 90)
+        //     ->decrement('salary', 5000, ['HIRE_DATE' => date('Y-m-d')]);
+
+        /* $employees = DB::table('employees')->where('DEPARTMENT_ID', 90)->incrementEach([
+            'salary' => 10000,
+            'COMMISSION_PCT' => .5
+        ]); */
+
+        // dd($employees);
+
+        $region = DB::table('regions')->whereBetween('REGION_ID', [100, 110])->delete();
+        dd($region);
+    }
+
+    public function model()
+    {
+        $employees = Employee::all();
+        foreach ($employees as $emp) {
+            echo "<h3>" . $emp->FIRST_NAME . "</h3>";
+            echo "<h3>" . $emp->DEPARTMENT_NAME . "</h3>";
+        }
     }
 }
