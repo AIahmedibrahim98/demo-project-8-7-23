@@ -185,10 +185,12 @@ class HrController extends Controller
 
     public function model()
     {
-        $employees = Employee::all();
+        // $emp = Employee::where('EMPLOYEE_ID', 111)->first();
+        $emp = Employee::find(111)->FIRST_NAME;
+        dd($emp);
+        /* $employees = Employee::all();
         foreach ($employees as $emp) {
-            echo "<h3>" . $emp->FIRST_NAME . "</h3>";
-            echo "<h3>" . $emp->DEPARTMENT_NAME . "</h3>";
-        }
+            echo "<h3>" . $emp->EMPLOYEE_ID . ':' . $emp->FIRST_NAME . "</h3>";
+        } */
     }
 }

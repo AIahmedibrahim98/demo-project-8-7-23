@@ -18,12 +18,12 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             [
                 'name' => Str::random(20),
-                'email' => Str::random(20) . '@gmail.com',
+                'email' => 'admin@gmail.com',
                 'password' => Hash::make('123456')
             ],
             [
                 'name' => Str::random(20),
-                'email' => Str::random(20) . '@gmail.com',
+                'email' =>  'user@gmail.com',
                 'password' => Hash::make('123456')
             ]
         ]);

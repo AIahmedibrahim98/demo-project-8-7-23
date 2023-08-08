@@ -11,22 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('tasks', function (Blueprint $table) {
-            /* $table->string('description', 5000);
-            $table->string('comment', 5000); */
-            $table->text('name')->default('new_task')->change();
-            $table->renameColumn('price', 'total');
-            $table->after('name', function (Blueprint $table) {
-                $table->string('description', 5000)->nullable();
-                $table->string('comment', 5000);
-                $table->string('email')->unique();
+        // Schema::table('tasks', function (Blueprint $table) {
+        //     /* $table->string('description', 5000);
+        //     $table->string('comment', 5000); */
+        //     $table->text('name')->default('new_task')->change();
+        //     $table->renameColumn('price', 'total');
+        //     $table->after('name', function (Blueprint $table) {
+        //         $table->string('description', 5000)->nullable();
+        //         $table->string('comment', 5000);
+        //         $table->string('email')->unique();
 
-                // $table->unsignedBigInteger('user_id')->nullable();
-                // $table->foreign('user_id')->references('id')->on('users');
-                // $table->foreignId('user_id')->constrained();
-                $table->foreignId('user_id')->constrained('users');
-            });
-        });
+        //         // $table->unsignedBigInteger('user_id')->nullable();
+        //         // $table->foreign('user_id')->references('id')->on('users');
+        //         // $table->foreignId('user_id')->constrained();
+        //         $table->foreignId('user_id')->constrained('users');
+        //     });
+        // });
     }
 
     /**

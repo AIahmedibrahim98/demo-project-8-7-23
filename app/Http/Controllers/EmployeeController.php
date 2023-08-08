@@ -14,4 +14,9 @@ class EmployeeController extends Controller
         // return view('show_employees')->with(compact('employees'));
         return view('show_employees', compact('employees'));
     }
+
+
+    public function store()
+    {
+    }
 }
