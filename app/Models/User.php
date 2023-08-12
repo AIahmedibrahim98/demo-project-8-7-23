@@ -42,4 +42,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+    public function phone()
+    {
+        return $this->hasOne(Phone::class, 'user_id', 'id');
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'created_by', 'id');
+    }
 }
