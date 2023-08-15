@@ -1,0 +1,441 @@
+K:\AI\demo_project (main -> origin)
+λ php artisan tinker
+Psy Shell v0.11.18 (PHP 8.1.6 — cli) by Justin Hileman
+> $user = User::find(1);
+[!] Aliasing 'User' to 'App\Models\User' for this Tinker session.
+= App\Models\User {#6595
+    id: 1,
+    name: "ih7kqhqGby3AYmjyNPYW",
+    email: "admin@gmail.com",
+    email_verified_at: null,
+    #password: "$2y$10$1Owzw2d3mnFUQS.4jg8zmOC.BVOIuxnEVgONBmyVbfHKqljKbaP7a",
+    #remember_token: null,
+    created_at: null,
+    updated_at: null,
+  }
+
+> $user->posts
+= Illuminate\Database\Eloquent\Collection {#7216
+    all: [
+      App\Models\Post {#7213
+        id: 1,
+        title: "post 1",
+        description: "post details 1",
+        created_by: 1,
+        created_at: "2023-08-12 19:46:05",
+        updated_at: "2023-08-12 19:46:05",
+      },
+      App\Models\Post {#7215
+        id: 2,
+        title: "post 2",
+        description: "post details 2",
+        created_by: 1,
+        created_at: "2023-08-12 19:46:17",
+        updated_at: "2023-08-12 19:46:17",
+      },
+    ],
+  }
+
+> $user->posts()->first()->title
+= "post 1"
+
+> $user->posts->title
+
+   Exception  Property [title] does not exist on this collection instance.
+
+> $user->phone
+= App\Models\Phone {#6251
+    id: 1,
+    phone: "054654564564",
+    user_id: 1,
+    created_at: "2023-08-12 19:33:11",
+    updated_at: "2023-08-12 19:33:11",
+  }
+
+> ^C
+K:\AI\demo_project (main -> origin)
+λ php artisan migrate
+
+   INFO  Nothing to migrate.
+
+
+K:\AI\demo_project (main -> origin)
+λ php artisan tinker
+Psy Shell v0.11.18 (PHP 8.1.6 — cli) by Justin Hileman
+> Role::create(['name'=>'admin'])
+
+   Error  Class "Role" not found.
+
+> App\Models\Role::create(['name'=>'admin'])
+= App\Models\Role {#6253
+    name: "admin",
+    updated_at: "2023-08-15 18:04:02",
+    created_at: "2023-08-15 18:04:02",
+    id: 1,
+  }
+
+> App\Models\Role::create(['name'=>'user'])
+= App\Models\Role {#6251
+    name: "user",
+    updated_at: "2023-08-15 18:04:06",
+    created_at: "2023-08-15 18:04:06",
+    id: 2,
+  }
+
+> App\Models\Role::create(['name'=>'student'])
+= App\Models\Role {#6253
+    name: "student",
+    updated_at: "2023-08-15 18:04:11",
+    created_at: "2023-08-15 18:04:11",
+    id: 3,
+  }
+
+> App\Models\Role::create(['name'=>'hr'])
+= App\Models\Role {#6251
+    name: "hr",
+    updated_at: "2023-08-15 18:04:16",
+    created_at: "2023-08-15 18:04:16",
+    id: 4,
+  }
+
+> App\Models\Role::all();
+= Illuminate\Database\Eloquent\Collection {#7003
+    all: [
+      App\Models\Role {#6262
+        id: 1,
+        name: "admin",
+        created_at: "2023-08-15 18:04:02",
+        updated_at: "2023-08-15 18:04:02",
+      },
+      App\Models\Role {#7224
+        id: 2,
+        name: "user",
+        created_at: "2023-08-15 18:04:06",
+        updated_at: "2023-08-15 18:04:06",
+      },
+      App\Models\Role {#7225
+        id: 3,
+        name: "student",
+        created_at: "2023-08-15 18:04:11",
+        updated_at: "2023-08-15 18:04:11",
+      },
+      App\Models\Role {#7226
+        id: 4,
+        name: "hr",
+        created_at: "2023-08-15 18:04:16",
+        updated_at: "2023-08-15 18:04:16",
+      },
+    ],
+  }
+
+> User::all();
+[!] Aliasing 'User' to 'App\Models\User' for this Tinker session.
+= Illuminate\Database\Eloquent\Collection {#7001
+    all: [
+      App\Models\User {#7216
+        id: 1,
+        name: "ih7kqhqGby3AYmjyNPYW",
+        email: "admin@gmail.com",
+        email_verified_at: null,
+        #password: "$2y$10$1Owzw2d3mnFUQS.4jg8zmOC.BVOIuxnEVgONBmyVbfHKqljKbaP7a",
+        #remember_token: null,
+        created_at: null,
+        updated_at: null,
+      },
+      App\Models\User {#7227
+        id: 2,
+        name: "SqOpYsAkr72iTUyKQIC1",
+        email: "user@gmail.com",
+        email_verified_at: null,
+        #password: "$2y$10$EZ149AFfiCFkqeIfW6jwUuvQOHSB5qYIkZEauz8rsKKa0fdHzdpki",
+        #remember_token: null,
+        created_at: null,
+        updated_at: null,
+      },
+    ],
+  }
+
+> User::find(1)->update(['name'=>'Ahmed Ibrahim'])
+= true
+
+> User::all();
+= Illuminate\Database\Eloquent\Collection {#6262
+    all: [
+      App\Models\User {#7003
+        id: 1,
+        name: "Ahmed Ibrahim",
+        email: "admin@gmail.com",
+        email_verified_at: null,
+        #password: "$2y$10$1Owzw2d3mnFUQS.4jg8zmOC.BVOIuxnEVgONBmyVbfHKqljKbaP7a",
+        #remember_token: null,
+        created_at: null,
+        updated_at: "2023-08-15 18:05:11",
+      },
+      App\Models\User {#7228
+        id: 2,
+        name: "SqOpYsAkr72iTUyKQIC1",
+        email: "user@gmail.com",
+        email_verified_at: null,
+        #password: "$2y$10$EZ149AFfiCFkqeIfW6jwUuvQOHSB5qYIkZEauz8rsKKa0fdHzdpki",
+        #remember_token: null,
+        created_at: null,
+        updated_at: null,
+      },
+    ],
+  }
+
+> App\Models\UserRole::create(['user_id'=>1,'role_id'=>1]);
+
+   Illuminate\Database\QueryException  SQLSTATE[42S02]: Base table or view not found: 1146 Table 'demo_project.user_roles' doesn't exist (Connection: mysql, SQL: insert into `user_roles` (`user_id`, `role_id`, `updated_at`, `created_at`) values (1, 1, 2023-08-15 18:06:13, 2023-08-15 18:06:13)).
+
+> App\Models\UserRole::create(['user_id'=>1,'role_id'=>1]);
+
+   Illuminate\Database\QueryException  SQLSTATE[42S02]: Base table or view not found: 1146 Table 'demo_project.user_roles' doesn't exist (Connection: mysql, SQL: insert into `user_roles` (`user_id`, `role_id`, `updated_at`, `created_at`) values (1, 1, 2023-08-15 18:06:37, 2023-08-15 18:06:37)).
+
+> ^C
+K:\AI\demo_project (main -> origin)
+λ php artisan tinker
+Psy Shell v0.11.18 (PHP 8.1.6 — cli) by Justin Hileman
+> App\Models\UserRole::create(['user_id'=>1,'role_id'=>1]);
+= App\Models\UserRole {#6255
+    user_id: 1,
+    role_id: 1,
+    updated_at: "2023-08-15 18:06:44",
+    created_at: "2023-08-15 18:06:44",
+    id: 1,
+  }
+
+> App\Models\UserRole::create(['user_id'=>1,'role_id'=>2]);
+= App\Models\UserRole {#6276
+    user_id: 1,
+    role_id: 2,
+    updated_at: "2023-08-15 18:06:52",
+    created_at: "2023-08-15 18:06:52",
+    id: 2,
+  }
+
+> ^C
+K:\AI\demo_project (main -> origin)
+λ php artisan tinker
+Psy Shell v0.11.18 (PHP 8.1.6 — cli) by Justin Hileman
+> $user = User::find(1);
+[!] Aliasing 'User' to 'App\Models\User' for this Tinker session.
+= App\Models\User {#6595
+    id: 1,
+    name: "Ahmed Ibrahim",
+    email: "admin@gmail.com",
+    email_verified_at: null,
+    #password: "$2y$10$1Owzw2d3mnFUQS.4jg8zmOC.BVOIuxnEVgONBmyVbfHKqljKbaP7a",
+    #remember_token: null,
+    created_at: null,
+    updated_at: "2023-08-15 18:05:11",
+  }
+
+> $user->roles
+= Illuminate\Database\Eloquent\Collection {#7218
+    all: [
+      App\Models\Role {#7213
+        id: 1,
+        name: "admin",
+        created_at: "2023-08-15 18:04:02",
+        updated_at: "2023-08-15 18:04:02",
+        pivot: Illuminate\Database\Eloquent\Relations\Pivot {#7216
+          user_id: 1,
+          role_id: 1,
+        },
+      },
+      App\Models\Role {#7215
+        id: 2,
+        name: "user",
+        created_at: "2023-08-15 18:04:06",
+        updated_at: "2023-08-15 18:04:06",
+        pivot: Illuminate\Database\Eloquent\Relations\Pivot {#7217
+          user_id: 1,
+          role_id: 2,
+        },
+      },
+    ],
+  }
+
+> ^C
+K:\AI\demo_project (main -> origin)
+λ php artisan tinker
+Psy Shell v0.11.18 (PHP 8.1.6 — cli) by Justin Hileman
+> $user = User::find(1);
+[!] Aliasing 'User' to 'App\Models\User' for this Tinker session.
+= App\Models\User {#6595
+    id: 1,
+    name: "Ahmed Ibrahim",
+    email: "admin@gmail.com",
+    email_verified_at: null,
+    #password: "$2y$10$1Owzw2d3mnFUQS.4jg8zmOC.BVOIuxnEVgONBmyVbfHKqljKbaP7a",
+    #remember_token: null,
+    created_at: null,
+    updated_at: "2023-08-15 18:05:11",
+  }
+
+> $user->roles
+
+   Illuminate\Database\QueryException  SQLSTATE[42S02]: Base table or view not found: 1146 Table 'demo_project.role_user' doesn't exist (Connection: mysql, SQL: select `roles`.*, `role_user`.`user_id` as `pivot_user_id`, `role_user`.`role_id` as `pivot_role_id` from `roles` inner join `role_user` on `roles`.`id` = `role_user`.`role_id` where `role_user`.`user_id` = 1).
+
+> ^C
+K:\AI\demo_project (main -> origin)
+λ php artisan tinker
+Psy Shell v0.11.18 (PHP 8.1.6 — cli) by Justin Hileman
+> $user = User::find(1);
+[!] Aliasing 'User' to 'App\Models\User' for this Tinker session.
+= App\Models\User {#6595
+    id: 1,
+    name: "Ahmed Ibrahim",
+    email: "admin@gmail.com",
+    email_verified_at: null,
+    #password: "$2y$10$1Owzw2d3mnFUQS.4jg8zmOC.BVOIuxnEVgONBmyVbfHKqljKbaP7a",
+    #remember_token: null,
+    created_at: null,
+    updated_at: "2023-08-15 18:05:11",
+  }
+
+> $user->roles
+= Illuminate\Database\Eloquent\Collection {#7218
+    all: [
+      App\Models\Role {#7213
+        id: 1,
+        name: "admin",
+        created_at: "2023-08-15 18:04:02",
+        updated_at: "2023-08-15 18:04:02",
+        pivot: Illuminate\Database\Eloquent\Relations\Pivot {#7216
+          user_id: 1,
+          role_id: 1,
+        },
+      },
+      App\Models\Role {#7215
+        id: 2,
+        name: "user",
+        created_at: "2023-08-15 18:04:06",
+        updated_at: "2023-08-15 18:04:06",
+        pivot: Illuminate\Database\Eloquent\Relations\Pivot {#7217
+          user_id: 1,
+          role_id: 2,
+        },
+      },
+    ],
+  }
+
+> $user
+= App\Models\User {#6595
+    id: 1,
+    name: "Ahmed Ibrahim",
+    email: "admin@gmail.com",
+    email_verified_at: null,
+    #password: "$2y$10$1Owzw2d3mnFUQS.4jg8zmOC.BVOIuxnEVgONBmyVbfHKqljKbaP7a",
+    #remember_token: null,
+    created_at: null,
+    updated_at: "2023-08-15 18:05:11",
+    roles: Illuminate\Database\Eloquent\Collection {#7218
+      all: [
+        App\Models\Role {#7213
+          id: 1,
+          name: "admin",
+          created_at: "2023-08-15 18:04:02",
+          updated_at: "2023-08-15 18:04:02",
+          pivot: Illuminate\Database\Eloquent\Relations\Pivot {#7216
+            user_id: 1,
+            role_id: 1,
+          },
+        },
+        App\Models\Role {#7215
+          id: 2,
+          name: "user",
+          created_at: "2023-08-15 18:04:06",
+          updated_at: "2023-08-15 18:04:06",
+          pivot: Illuminate\Database\Eloquent\Relations\Pivot {#7217
+            user_id: 1,
+            role_id: 2,
+          },
+        },
+      ],
+    },
+  }
+
+> ^C
+K:\AI\demo_project (main -> origin)
+λ php artisan tinker
+Psy Shell v0.11.18 (PHP 8.1.6 — cli) by Justin Hileman
+> $user = User::find(1)
+[!] Aliasing 'User' to 'App\Models\User' for this Tinker session.
+= App\Models\User {#6595
+    id: 1,
+    name: "Ahmed Ibrahim",
+    email: "admin@gmail.com",
+    email_verified_at: null,
+    #password: "$2y$10$1Owzw2d3mnFUQS.4jg8zmOC.BVOIuxnEVgONBmyVbfHKqljKbaP7a",
+    #remember_token: null,
+    created_at: null,
+    updated_at: "2023-08-15 18:05:11",
+  }
+
+> $user->posts;
+= Illuminate\Database\Eloquent\Collection {#7216
+    all: [
+      App\Models\Post {#7213
+        id: 1,
+        title: "post 1",
+        description: "post details 1",
+        created_by: 1,
+        created_at: "2023-08-12 19:46:05",
+        updated_at: "2023-08-12 19:46:05",
+      },
+      App\Models\Post {#7215
+        id: 2,
+        title: "post 2",
+        description: "post details 2",
+        created_by: 1,
+        created_at: "2023-08-12 19:46:17",
+        updated_at: "2023-08-12 19:46:17",
+      },
+    ],
+  }
+
+> $user->posts()->create(['title'=>'post 3','description'=>'post details 3']);
+= App\Models\Post {#7223
+    title: "post 3",
+    description: "post details 3",
+    created_by: 1,
+    updated_at: "2023-08-15 18:18:49",
+    created_at: "2023-08-15 18:18:49",
+    id: 3,
+  }
+
+> $user->posts()->find(2)
+= App\Models\Post {#7225
+    id: 2,
+    title: "post 2",
+    description: "post details 2",
+    created_by: 1,
+    created_at: "2023-08-12 19:46:17",
+    updated_at: "2023-08-12 19:46:17",
+  }
+
+> ^C
+K:\AI\demo_project (main -> origin)
+λ php artisan tinker
+Psy Shell v0.11.18 (PHP 8.1.6 — cli) by Justin Hileman
+> App\Models\Role::find(1)->users
+= Illuminate\Database\Eloquent\Collection {#7215
+    all: [
+      App\Models\User {#7216
+        id: 1,
+        name: "Ahmed Ibrahim",
+        email: "admin@gmail.com",
+        email_verified_at: null,
+        #password: "$2y$10$1Owzw2d3mnFUQS.4jg8zmOC.BVOIuxnEVgONBmyVbfHKqljKbaP7a",
+        #remember_token: null,
+        created_at: null,
+        updated_at: "2023-08-15 18:05:11",
+        pivot: Illuminate\Database\Eloquent\Relations\Pivot {#7213
+          role_id: 1,
+          user_id: 1,
+        },
+      },
+    ],
+  }

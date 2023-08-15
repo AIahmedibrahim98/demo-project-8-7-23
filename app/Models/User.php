@@ -43,7 +43,6 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-
     public function phone()
     {
         return $this->hasOne(Phone::class, 'user_id', 'id');
@@ -52,5 +51,15 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasMany(Post::class, 'created_by', 'id');
+    }
+
+    public function roles()
+    {
+        // return $this->belongsToMany(Role::class, 'user_role', 'user_id', 'role_id', 'id', 'id');
+        return $this->belongsToMany(Role::class, 'user_role');
+    }
+    public function user_roles()
+    {
+        return $this->hasMany(UserRole::class, 'user_id', 'id');
     }
 }
